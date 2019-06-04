@@ -1,0 +1,23 @@
+﻿@model IEnumerable<BlogSystem.Models.Article>
+
+
+@foreach (var item in Model)
+{
+    <div class="post-preview">
+        <a href='@Url.Action("Details", "Articles", new { id = item.ArticleId })'>
+            <h2 class="post-title">
+                @item.Title
+            </h2>
+            @*<h3 class="post-subtitle">
+                    Problems look mighty small from 150 miles up
+                </h3>*@
+        </a>
+        <p class="post-meta">
+            Category
+            <a href="#">@item.Category.Name</a>
+            on @item.Date
+        </p>
+    </div>
+                        <hr>
+
+}

@@ -1,0 +1,85 @@
+﻿@model IEnumerable<BlogSystem.Models.Article>
+
+  
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('/Content/Images/profile.jpg')">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="site-heading">
+                        <h1>Clean Blog</h1>
+                        <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+@using (Ajax.BeginForm("FilterArticles", new {  }, new AjaxOptions
+{
+    HttpMethod="Post",
+    UpdateTargetId = "articles",
+    InsertionMode = InsertionMode.Replace,
+}))
+
+{
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="form-group post-preview">
+                    @Html.Label("Category", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("CategoryId", ViewBag.Cat as SelectList, "  Select Category  ", new { onchange = "$(this.form).submit();", htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div id="articles">
+                    @foreach (var item in Model)
+                {
+                        <div class="post-preview">
+                            <a href='@Url.Action("Details", "Articles", new { id = item.ArticleId })'>
+                                <h2 class="post-title">
+                                    @item.Title
+                                </h2>
+                                @*<h3 class="post-subtitle">
+                            Problems look mighty small from 150 miles up
+                        </h3>*@
+                            </a>
+                            <p class="post-meta">
+                                Category
+                                <a href="#">@item.Category.Name</a>
+                                on @item.Date
+                            </p>
+                        </div>
+                        <hr>
+
+                    }
+                </div>
+
+
+
+            
+                <!-- Pager -->
+                <div class="clearfix">
+                    @*<a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>*@
+                    @Ajax.ActionLink("Older Articles >>>", "ShowArticles", null,new AjaxOptions()
+               {
+                   UpdateTargetId = "articles",
+                   InsertionMode = InsertionMode.Replace,
+               }, new { @class = "btn btn-primary float-right" })
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+}
+
+
+@section scripts{
+
+}

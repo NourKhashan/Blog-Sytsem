@@ -1,0 +1,23 @@
+﻿@model IEnumerable<BlogSystem.Models.Comment>
+
+
+
+@foreach (var item in Model)
+{
+
+
+
+    <div class="post-preview">
+        <h3 class="post-title">
+            @Html.DisplayFor(Co => item.Content)
+        </h3>
+        @*<h3 class="post-subtitle">
+                Problems look mighty small from 150 miles up
+            </h3>*@
+        <p class="post-meta">
+
+            on @item.Date
+        </p>
+    </div>
+     <br>
+}

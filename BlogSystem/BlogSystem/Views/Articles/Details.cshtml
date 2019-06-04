@@ -1,0 +1,109 @@
+﻿@model BlogSystem.Models.ArticleCommentsModelView
+
+@{
+    ViewBag.Title = "Details";
+    
+
+}
+
+
+
+
+ <!-- Page Header -->
+<header class="masthead" style="background-image: url('@ViewBag.imgSrc')">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h1>@Model.Article.Title</h1>
+                    <span class="subheading">Category: @Model.Article.Category.Name</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+<div class="container">
+    <hr />
+    <div class="text-center">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Article.ArticleId }) |
+        @Html.ActionLink("Delete", "Delete", new { id = Model.Article.ArticleId })
+    </div>
+    <dl class="dl-horizontal">
+        <p>
+            <b> <i>Publised on: </i></b>
+
+            @Html.DisplayFor(model => model.Article.Date)
+        </p>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Article.Content)
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.Article.Content)
+        </dd>
+
+
+
+    </dl>
+
+
+
+    <hr />
+    <h2>Comments</h2>
+    @using (Ajax.BeginForm("AddComments", new { id = Model.Article.ArticleId }, new AjaxOptions
+    {
+        HttpMethod = "Post",
+        UpdateTargetId = "Comments",
+        InsertionMode = InsertionMode.Replace,
+    }))
+
+    {
+        <div class="text-center">
+
+           
+            <div id="Comments">
+                @foreach (var item in Model.Comments)
+                {
+                   
+
+
+                    <div class="post-preview">
+                            <h3 class="post-title">
+                                @Html.DisplayFor(Co => item.Content)
+                            </h3>
+                            @*<h3 class="post-subtitle">
+                                    Problems look mighty small from 150 miles up
+                                </h3>*@
+                        <p class="post-meta">
+                            
+                            on @item.Date
+                        </p>
+                    </div>
+                    <br>
+                }
+
+            </div>
+
+
+
+            @Html.TextArea("CommentContent")
+
+            <input id="btnSubmit" type="submit" value="Add" class="btn btn-primary" />
+
+        </div>
+
+
+
+    }
+
+</div>
+@section scripts{
+
+   
+ 
+}
