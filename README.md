@@ -1,5 +1,5 @@
 # YackeenTask
-Blog System By using ASP.net, SQL 
+Blog System 
                 By Nour Khashan
 ----------------------------------------------------------------------
 Steps:
