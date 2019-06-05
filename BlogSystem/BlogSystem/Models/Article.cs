@@ -13,7 +13,8 @@ namespace BlogSystem.Models
         [Key]
         public int ArticleId { get; set; }
         [Required]
-        [StringLength(20, MinimumLength = 3, ErrorMessage = "Length must be between 3 and 20")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Length must be between 3 and 50")]
+        [Remote("IsAlreadyExist", "Articles", HttpMethod = "POST", ErrorMessage = "Article Title already exists")]
 
         public string Title { get; set; }
 

@@ -14,6 +14,15 @@ namespace BlogSystem.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+
+        [HttpPost]
+        public JsonResult IsAlreadyExist(string Name)
+        {
+            //check if any of the UserName matches the UserName specified in the Parameter using the ANY extension method.  
+            return Json(!db.Categoris.Any(x => x.Name == Name), JsonRequestBehavior.AllowGet);
+        }
+
+
         // GET: Categories
         public ActionResult Index()
         {
@@ -110,6 +119,7 @@ namespace BlogSystem.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Category category = db.Categoris.Find(id);
+         
             db.Categoris.Remove(category);
             db.SaveChanges();
             return RedirectToAction("Index");

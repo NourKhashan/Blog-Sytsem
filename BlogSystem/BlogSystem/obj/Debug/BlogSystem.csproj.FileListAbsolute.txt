@@ -71,3 +71,5 @@ C:\Users\user\Documents\GitHubs\YackeenTask\BlogSystem\BlogSystem\obj\Debug\Blog
 C:\Users\user\Documents\GitHubs\YackeenTask\BlogSystem\BlogSystem\obj\Debug\BlogSystem.pdb
 C:\Users\user\Documents\GitHubs\YackeenTask\BlogSystem\BlogSystem\obj\Debug\BlogSystem.Migrations.init1.resources
 C:\Users\user\Documents\GitHubs\YackeenTask\BlogSystem\BlogSystem\obj\Debug\BlogSystem.csproj.GenerateResource.Cache
+C:\Users\user\Documents\GitHubs\YackeenTask\BlogSystem\BlogSystem\obj\Debug\BlogSystem.Migrations.init8.resources
+C:\Users\user\Documents\GitHubs\YackeenTask\BlogSystem\BlogSystem\obj\Debug\BlogSystem.Migrations.init9.resources
