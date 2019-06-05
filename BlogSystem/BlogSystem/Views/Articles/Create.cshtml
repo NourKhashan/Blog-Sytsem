@@ -11,7 +11,7 @@
             <div class="col-lg-8 col-md-10 mx-auto">
                 <div class="site-heading">
                     <h1>Clean Blog</h1>
-                    <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                    <span class="subheading">A Blog Theme </span>
                 </div>
             </div>
         </div>
@@ -32,8 +32,7 @@
         <div class="form-group">
             @Html.Label("Category", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.CategoryId, ViewBag.Cat as SelectList,  "  Select Category  ",new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.CategoryId, ViewBag.Cat as SelectList,  "  Select Category  ",new { htmlAttributes = new { @class = "form-control", required = "required" } })
             </div>
         </div>
 

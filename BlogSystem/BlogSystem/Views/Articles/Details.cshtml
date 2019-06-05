@@ -28,10 +28,12 @@
 
 <div class="container">
     <hr />
+    @if(User.Identity.IsAuthenticated){
     <div class="text-center">
         @Html.ActionLink("Edit", "Edit", new { id = Model.Article.ArticleId }) |
         @Html.ActionLink("Delete", "Delete", new { id = Model.Article.ArticleId })
     </div>
+    }
     <dl class="dl-horizontal">
         <p>
             <b> <i>Publised on: </i></b>
@@ -91,9 +93,18 @@
 
 
 
-            @Html.TextArea("CommentContent")
 
-            <input id="btnSubmit" type="submit" value="Add" class="btn btn-primary" />
+
+            
+                <div>
+                    @Html.TextArea("CommentContent")
+                </div>
+            
+            <div>
+                <input id="btnSubmit" type="submit" value="Add" class="btn btn-primary" />
+
+            </div>
+
 
         </div>
 

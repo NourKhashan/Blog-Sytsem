@@ -222,9 +222,13 @@
     <Content Include="Content\Images\default.png" />
     <Content Include="Content\Images\img\about-bg.jpg" />
     <Content Include="Content\Images\img\contact-bg.jpg" />
+    <Content Include="Content\Images\img\delete.jpg" />
     <Content Include="Content\Images\img\home-bg.jpg" />
+    <Content Include="Content\Images\img\login.jpg" />
     <Content Include="Content\Images\img\post-bg.jpg" />
     <Content Include="Content\Images\img\post-sample-image.jpg" />
+    <Content Include="Content\Images\img\register.jpg" />
+    <Content Include="Content\Images\profile.jpg" />
     <Content Include="Content\vendor\bootstrap\css\bootstrap-grid.css" />
     <Content Include="Content\vendor\bootstrap\css\bootstrap-grid.min.css" />
     <Content Include="Content\vendor\bootstrap\css\bootstrap-reboot.css" />

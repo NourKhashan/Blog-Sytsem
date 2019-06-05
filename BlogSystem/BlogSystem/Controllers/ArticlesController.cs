@@ -80,14 +80,14 @@ namespace BlogSystem.Controllers
                 else
                 {
                     // Get image path  
-                    string imgPath = Server.MapPath("~/Images/default.png");
+                    string imgPath = Server.MapPath("~/Content/Images/default.png");
                     // Convert image to byte array  
                     article.Photo = System.IO.File.ReadAllBytes(imgPath);
                 }
 
                 db.Articles.Add(article);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", new { id=article.ArticleId});
             }
             ViewBag.Cat = new SelectList(db.Categoris.ToList(), "CategoryId", "Name");
 
