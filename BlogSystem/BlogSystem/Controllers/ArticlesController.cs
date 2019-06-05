@@ -14,6 +14,15 @@ namespace BlogSystem.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        [HttpPost]
+        public JsonResult IsAlreadyExist(string Title)
+        {
+            //check if any of the UserName matches the UserName specified in the Parameter using the ANY extension method.  
+            return Json(!db.Articles.Any(x => x.Title == Title), JsonRequestBehavior.AllowGet);
+        }
+
+
+
         // GET: Articles
         public ActionResult Index()
         {
